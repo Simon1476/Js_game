@@ -1,0 +1,144 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    background-image: url('img/background.png');
+    background-size: cover;
+    height: 100%;
+}
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.container {
+    margin:auto;
+    height: 50%;
+}
+
+/* btn_box */
+
+.btn_box {
+    display: flex;
+    width: 1080px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.btn_box button{
+    width: 100px;
+    height: 100px;
+    font-size: 36px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btn_box #start,
+.btn_box #stop{
+    margin-right: 20px;
+}
+
+/* clock_box */
+.clock_box {
+    display: flex;
+    margin: 0 auto;
+    width: 500px;
+    justify-content: space-between;
+    margin-top: 40px;
+    font-size: 72px;
+}
+
+.clock i {
+    color: #be9949;
+}
+
+.clock_box #clock_text {
+    color: red;
+}
+
+/* number_box */
+.number_box {
+    display: flex;
+    margin: 0 auto;
+    width: 600px;
+    justify-content: space-between;
+    margin-top: 40px;
+    font-size: 72px;
+}
+
+/* monster_box */
+.monster_box {
+    position: relative;
+    padding-top: 100px;
+    height: 50%;
+}
+
+.popup_replay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 25%;
+    color: #fff;
+    font-size: 72px;
+    opacity: 0.6;
+    border-radius: 20px;
+    z-index: 10;
+    
+}
+
+.popup_replay .top button {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.popup_replay .top button i {
+    font-size: 72px;
+}

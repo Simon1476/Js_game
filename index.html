@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/6ccabae60a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <div class="btn_box">
+            <button type="button" id="start">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button type="button" id="stop">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+            <button id="speed"><i class="fa-solid fa-forward"></i></button>
+        </div>
+        <div class="clock_box">
+            <div class="clock">
+                <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <div id="clock_text">0초</div>
+        </div>
+        <div class="number_box">
+            <div class="total_box">
+                <span>Total:</span>
+                <span>10</span>
+            </div>
+            <div class="catch_box">
+                <span>Catch:</span>
+                <span>9</span>
+            </div>
+        </div>
+    </section>
+    <section class="monster_box">
+        <img src="img/bug.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png"><img src="img/bug.png">
+        <img src="img/carrot.png"><img src="img/bug.png">
+        <img src="img/carrot.png"><img src="img/bug.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png"><img src="img/bug.png"><img src="img/bug.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png">
+        <img src="img/carrot.png">
+        <div class="popup_replay">
+            <div class="top">
+                <button>
+                    <i class="fa-solid fa-reply-all"></i>
+                </button>
+            </div>
+            <div class="bottom">
+                Do you want to reply ? 
+            </div>
+        </div>
+    </section>
+   
+    <div class="popup_win"></div>
+    <div class="popup_lose"></div>
+    <script src="main.js" defer></script>
+</body>
+</html>
