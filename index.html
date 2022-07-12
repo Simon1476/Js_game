@@ -22,34 +22,24 @@
             <div class="clock">
                 <i class="fa-solid fa-stopwatch"></i>
             </div>
-            <div id="clock_text">0초</div>
+            <div id="clock_text"></div>
         </div>
         <div class="number_box">
             <div class="total_box">
                 <span>Total:</span>
-                <span>10</span>
+                <span id="total_number"></span>
             </div>
             <div class="catch_box">
                 <span>Catch:</span>
-                <span>9</span>
+                <span id="catch_number">0</span>
             </div>
         </div>
     </section>
-    <section class="monster_box">
-        <img src="img/bug.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png"><img src="img/bug.png">
-        <img src="img/carrot.png"><img src="img/bug.png">
-        <img src="img/carrot.png"><img src="img/bug.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png"><img src="img/bug.png"><img src="img/bug.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png">
-        <img src="img/carrot.png">
-        <div class="popup_replay">
+    <section id="monster_box">
+        <div class="dummy">
+            
+        </div>
+        <div class="popup replay">
             <div class="top">
                 <button>
                     <i class="fa-solid fa-reply-all"></i>
@@ -58,11 +48,48 @@
             <div class="bottom">
                 Do you want to reply ? 
             </div>
+            <div class="close">
+                <button>
+                    <i class="fa-solid fa-rectangle-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <div class="popup win">
+            <div class="top">
+                <button>
+                    <i class="fa-solid fa-reply-all"></i>
+                </button>
+            </div>
+            <div class="bottom">
+                You Win!  Try again ?
+            </div>
+            <div class="close">
+                <button>
+                    <i class="fa-solid fa-rectangle-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <div class="popup lose">
+            <div class="top">
+                <button>
+                    <i class="fa-solid fa-reply-all"></i>
+                </button>
+            </div>
+            <div class="bottom">
+                You lose!  Try again ?
+            </div>
+            <div class="close">
+                <button>
+                    <i class="fa-solid fa-rectangle-xmark"></i>
+                </button>
+            </div>
         </div>
     </section>
    
-    <div class="popup_win"></div>
-    <div class="popup_lose"></div>
+    
+    <div class="bg">
+        <audio id="audio" style="display: none;" src="sound/bg.mp3" controls autoplay loop></audio>
+    </div>
     <script src="main.js" defer></script>
 </body>
 </html>

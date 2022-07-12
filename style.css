@@ -29,6 +29,7 @@ body {
     background-image: url('img/background.png');
     background-size: cover;
     height: 100%;
+    overflow: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -107,13 +108,14 @@ table {
 }
 
 /* monster_box */
-.monster_box {
+#monster_box {
     position: relative;
-    padding-top: 100px;
+    padding: 100px;
     height: 50%;
 }
 
-.popup_replay {
+/* popup_replay */
+.popup {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -129,16 +131,44 @@ table {
     opacity: 0.6;
     border-radius: 20px;
     z-index: 10;
-    
 }
 
-.popup_replay .top button {
+.popup.replay{
+    display: none;
+}
+.popup .top button {
     display: block;
     cursor: pointer;
     width: 100%;
     border-radius: 50%;
 }
 
-.popup_replay .top button i {
+.popup .top button i {
     font-size: 72px;
+}
+
+.popup .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.popup .close button {
+    cursor: pointer;
+}
+
+.popup .close button i {
+    font-size: 36px;
+}
+
+.popup.win{
+    display: none;
+}
+
+.popup.lose {
+    display: none;
+}
+
+.dummy{
+    height: 100%;
 }
