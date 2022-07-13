@@ -26,7 +26,7 @@
         </div>
         <div class="number_box">
             <div class="total_box">
-                <span>Total:</span>
+                <span>Carrot:</span>
                 <span id="total_number"></span>
             </div>
             <div class="catch_box">
@@ -37,26 +37,26 @@
     </section>
     <section id="monster_box">
         <div class="dummy">
-            
+
         </div>
         <div class="popup replay">
             <div class="top">
-                <button>
+                <button class="popup_btn">
                     <i class="fa-solid fa-reply-all"></i>
                 </button>
             </div>
             <div class="bottom">
-                Do you want to reply ? 
+                Want to continue the game?
             </div>
             <div class="close">
                 <button>
-                    <i class="fa-solid fa-rectangle-xmark"></i>
+                    <i data-id="replay" class="fa-solid fa-rectangle-xmark"></i>
                 </button>
             </div>
         </div>
         <div class="popup win">
             <div class="top">
-                <button>
+                <button class="popup_btn">
                     <i class="fa-solid fa-reply-all"></i>
                 </button>
             </div>
@@ -65,13 +65,13 @@
             </div>
             <div class="close">
                 <button>
-                    <i class="fa-solid fa-rectangle-xmark"></i>
+                    <i data-id="win" class="fa-solid fa-rectangle-xmark"></i>
                 </button>
             </div>
         </div>
         <div class="popup lose">
             <div class="top">
-                <button>
+                <button class="popup_btn">
                     <i class="fa-solid fa-reply-all"></i>
                 </button>
             </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="close">
                 <button>
-                    <i class="fa-solid fa-rectangle-xmark"></i>
+                    <i data-id="lose" class="fa-solid fa-rectangle-xmark"></i>
                 </button>
             </div>
         </div>
@@ -89,6 +89,7 @@
     
     <div class="bg">
         <audio id="audio" style="display: none;" src="sound/bg.mp3" controls autoplay loop></audio>
+        <audio id="audio_lose" style="display: none;" src="sound/lose.wav" controls autoplay loop></audio>
     </div>
     <script src="main.js" defer></script>
 </body>
