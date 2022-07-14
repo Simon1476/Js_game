@@ -5,41 +5,49 @@ const popupBtn = document.querySelector('.popup_btn');
 const monsterBox = document.querySelector('#monster_box');
 const audioBgm = document.querySelector('.bg #audio');
 const audioRose = document.querySelector('.bg #audio_lose')
+const audioWin = document.querySelector('.bg #audio_win');
+const audioCarrot = document.querySelector('.bg #audio_carrot');
+const audioBug = document.querySelector('.bg #audio_bug');
 const clockText = document.querySelector('#clock_text');
 const popupReplay = document.querySelector('.popup.replay');
 const popupClose = document.querySelectorAll('.popup .close');
 const popupLose = document.querySelector('.popup.lose');
+const popupWin = document.querySelector('.popup.win');
 const totalNumber = document.querySelector('#total_number');
 const catchNumber = document.querySelector('#catch_number');
 const dummy = document.querySelector('.dummy');
 const bug = document.querySelector('#bug');
-console.log(popupClose);
+
 const imgs = ["img/bug.png", "img/carrot.png"]
 
 let seconds = 10;
-let timeFlag = true;
 let timer = 0;
+let catchCarrot = 0;
 
-let click = false;
-let createStatus = false;
+let clickState = false;
+let timeState = true;
+let createState = false;
+let popupState = false;
 
 let carrotNumber = Math.floor(Math.random()*10 + 1);
-let popupState = false;
+
+
+// let carrotDummy = [];
+// let bugDummy = [];
 
 
 function handleStartGame(){
     let bugNumber = 0;
-    if(!click && !createStatus) {
+    if(!clickState && !createState) {
         audioBgm.play();
-        createStatus = true;
-        click = true;
+        createState = true;
+        clickState = true;
         bugNumber = Math.floor(Math.random()*10 + 1);
         carrotNumber = Math.floor(Math.random()*10 + 1);
         totalNumber.innerText = carrotNumber;
         handleMakeImage(bugNumber, carrotNumber);
-        if(timeFlag){
-            console.log('눌렷니?')
-            timeFlag = false;
+        if(timeState){
+            timeState = false;
             clockText.innerText =`${seconds}초`;
             timer = setInterval(()=>{
             seconds--;
@@ -48,16 +56,32 @@ function handleStartGame(){
                 if (carrotNumber !== 0) {
                     popupLose.classList.remove('lose');
                     popupState = true;
+                    audioRose.play();
+                    catchNumber.innerText = 0;
+                    catchCarrot = 0;
                 }
-            
+                clockText.innerText =`Time over!`;
                 audioBgm.pause();
                 audioBgm.currentTime = 0;
-                clockText.innerText =`Time over!`;
                 clearInterval(timer);
-                createStatus = true;
+                createState = true;
                 seconds = 10;
-                
+            
+            } else if(seconds !==0 && carrotNumber === 0){
+                audioWin.play();
+                popupWin.classList.remove('win');
+                catchNumber.innerText = 0;
+                clockText.innerText =`0`;
+                catchCarrot = 0;
+                popupState = true;
+                audioBgm.pause();
+                audioBgm.currentTime = 0;
+                clearInterval(timer);
+                createState = true;
+                seconds = 10;
             }
+         
+            
             }, 1000)
         }
     }
@@ -67,12 +91,12 @@ function handleStartGame(){
 }
 
 function handlePauseGame() {
-    if(click && !popupState){
-        click = false;
+    if(clickState && !popupState){
+        clickState = false;
         popupReplay.classList.remove('replay')
         audioBgm.paused ? audioBgm.play() : audioBgm.pause();
         if(seconds != 0){
-            timeFlag = true;
+            timeState = true;
             clearInterval(timer);
             audioBgm.pause();
             
@@ -84,17 +108,17 @@ function handleMakeImage(bugNumber, carrotNumber) {
         
     let randomX = 0;
     let randomY = 0
+  
     for(let i=0; i<bugNumber; i++){
         let img = document.createElement('img');
         randomX = Math.floor(Math.random()*(dummy.clientWidth -50));
         randomY = Math.floor(Math.random()*(dummy.clientHeight-50));
-        
-
         img.setAttribute("style", "position:absolute");
         img.setAttribute("src", "img/bug.png");
         img.setAttribute("data-name", "bug");
         img.style.top = randomY;
         img.style.left = randomX;
+        
         dummy.appendChild(img);
     }
 
@@ -107,9 +131,9 @@ function handleMakeImage(bugNumber, carrotNumber) {
         img.setAttribute("src", "img/carrot.png");
         img.setAttribute("data-name", "carrot");
         
-        console.log(`X=${randomX} Y=${randomY}`);
         img.style.top = randomY;
         img.style.left = randomX;
+        
         dummy.appendChild(img);
     }
     
@@ -124,16 +148,18 @@ function handleRemoveAllChild(dummy) {
 function handleClosePopup(event) {
     popupReplay.classList.add('replay');
     popupLose.classList.add('lose');
+    popupWin.classList.add('win');
     handleRemoveAllChild(dummy);
     totalNumber.innerText = 0;
     clockText.innerText =`0`;
     audioBgm.pause();
     audioBgm.currentTime = 0;
     seconds = 10;
-    createStatus = false;
+    createState = false;
     popupState = false;
-    click = false;
-    timeFlag = true;
+    clickState = false;
+    timeState = true;
+    catchNumber.innerText = 0;
     // clockText.innerText =`${seconds}`
     
 }
@@ -143,7 +169,7 @@ function handleRestartGame() {
     if(!popupState){
     popupReplay.classList.add('replay');
     audio.play()
-    click = true;
+    clickState = true;
     clockText.innerText =`${seconds}초`;
     timer = setInterval(()=>{
         seconds--;
@@ -152,19 +178,57 @@ function handleRestartGame() {
             if (carrotNumber !== 0) {
                 popupLose.classList.remove('lose');
                 popupState = true;
-                
+                catchCarrot = 0;
             }
             clockText.innerText =`Time over!`;
             clearInterval(timer);
             audioBgm.pause();
             audioBgm.currentTime = 0;
-            createStatus = false;
+            createState = false;
+            seconds = 10;
+        }   else if(seconds !==0 && carrotNumber === 0){
+            audioWin.play();
+            popupWin.classList.remove('win');
+            catchNumber.innerText = 0;
+            clockText.innerText =`0`;
+            popupState = true;
+            audioBgm.pause();
+            audioBgm.currentTime = 0;
+            clearInterval(timer);
+            createState = true;
             seconds = 10;
         }
     }, 1000)
     }
 }
+
+function hadleClickImage(event) {
+    
+    if(event.target.dataset.name === "carrot"){
+        audioCarrot.play();
+        event.target.remove();
+        carrotNumber--;
+        catchCarrot++;
+        catchNumber.innerText = catchCarrot;
+        totalNumber.innerText = carrotNumber;
+        
+        
+    }else if(event.target.dataset.name === "bug"){
+        audioBug.play();
+    }
+}
+
+// function handleMoveImage(carrotDummy, bugDummy) {
+//     randomX = Math.floor(Math.random()*(dummy.clientWidth -50));
+//     randomY = Math.floor(Math.random()*(dummy.clientHeight-50));
+//     img.style.top = randomY;
+//     img.style.left = randomX;
+// }
+
+
+
 startBtn.addEventListener('click', handleStartGame);
 stopBtn.addEventListener('click', handlePauseGame);
 popupClose.forEach(item=> item.addEventListener('click', handleClosePopup));
 popupBtn.addEventListener('click', handleRestartGame);
+dummy.addEventListener('click', hadleClickImage)

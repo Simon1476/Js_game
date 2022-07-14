@@ -31,7 +31,7 @@
             </div>
             <div class="catch_box">
                 <span>Catch:</span>
-                <span id="catch_number">0</span>
+                <span id="catch_number"></span>
             </div>
         </div>
     </section>
@@ -55,13 +55,8 @@
             </div>
         </div>
         <div class="popup win">
-            <div class="top">
-                <button class="popup_btn">
-                    <i class="fa-solid fa-reply-all"></i>
-                </button>
-            </div>
             <div class="bottom">
-                You Win!  Try again ?
+                You Win!
             </div>
             <div class="close">
                 <button>
@@ -70,13 +65,8 @@
             </div>
         </div>
         <div class="popup lose">
-            <div class="top">
-                <button class="popup_btn">
-                    <i class="fa-solid fa-reply-all"></i>
-                </button>
-            </div>
             <div class="bottom">
-                You lose!  Try again ?
+                You lose!
             </div>
             <div class="close">
                 <button>
@@ -89,7 +79,10 @@
     
     <div class="bg">
         <audio id="audio" style="display: none;" src="sound/bg.mp3" controls autoplay loop></audio>
-        <audio id="audio_lose" style="display: none;" src="sound/lose.wav" controls autoplay loop></audio>
+        <audio id="audio_lose" style="display: none;" src="sound/lose.wav" controls autoplay ></audio>
+        <audio id="audio_win" style="display: none;" src="sound/game_win.mp3" controls autoplay ></audio>
+        <audio id="audio_bug" style="display: none;" src="sound/bug_pull.mp3" controls autoplay ></audio>
+        <audio id="audio_carrot" style="display: none;" src="sound/carrot_pull.mp3" controls autoplay ></audio>
     </div>
     <script src="main.js" defer></script>
 </body>
