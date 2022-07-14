@@ -1,5 +1,5 @@
 # Carrot Game
- - [Carrot Game] (https://simon1476.github.io/Js_game/)
+ - [Carrot Game](https://simon1476.github.io/Js_game/)
  - 제한시간안에 주어진 모든 당근을 클릭하면 승리하는 게임!
  
  <a href="링크"><img src="https://img.shields.io/badge/Toool-JS%2C%20CSS%2C%20HTML-yellow"/></a>
