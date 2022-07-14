@@ -30,7 +30,10 @@ body {
     background-size: cover;
     height: 100%;
     overflow: hidden;
+    
 }
+
+
 ol, ul {
 	list-style: none;
 }
@@ -180,3 +183,5 @@ table {
 .dummy img:hover {
     transform:  scale(1.1);
 }
+
+

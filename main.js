@@ -92,6 +92,7 @@ function handleStartGame(){
 
 function handlePauseGame() {
     if(clickState && !popupState){
+        dummy.style.pointerEvents = "none";
         clickState = false;
         popupReplay.classList.remove('replay')
         audioBgm.paused ? audioBgm.play() : audioBgm.pause();
@@ -116,6 +117,7 @@ function handleMakeImage(bugNumber, carrotNumber) {
         img.setAttribute("style", "position:absolute");
         img.setAttribute("src", "img/bug.png");
         img.setAttribute("data-name", "bug");
+        
         img.style.top = randomY;
         img.style.left = randomX;
         
@@ -130,6 +132,7 @@ function handleMakeImage(bugNumber, carrotNumber) {
         img.setAttribute("style", "position:absolute");
         img.setAttribute("src", "img/carrot.png");
         img.setAttribute("data-name", "carrot");
+        
         
         img.style.top = randomY;
         img.style.left = randomX;
@@ -168,6 +171,7 @@ function handleRestartGame() {
 
     if(!popupState){
     popupReplay.classList.add('replay');
+    dummy.style.pointerEvents = "auto";
     audio.play()
     clickState = true;
     clockText.innerText =`${seconds}초`;
